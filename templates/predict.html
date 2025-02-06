@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block content %}
+
+<h2 class="text-2xl font-bold text-center my-4">
+  Upload an Image of the Taffic Sign to predict
+</h2>
+
+<div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+  <form
+    id="upload-file"
+    method="post"
+    enctype="multipart/form-data"
+    class="mb-4"
+  >
+    <label
+      for="imageUpload"
+      class="upload-label bg-blue-500 hover:bg-blue-600 p-3 rounded block font-medium text-white mb-2"
+    >
+      Choose...
+    </label>
+    <input
+      type="file"
+      name="file"
+      id="imageUpload"
+      accept=".png, .jpg, .jpeg"
+      class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+    />
+  </form>
+
+  <div class="image-section hidden">
+    <div class="img-preview mb-4">
+      <div
+        id="imagePreview"
+        class="border border-gray-300 rounded-lg p-2"
+      ></div>
+    </div>
+    <div>
+      <button
+        type="button"
+        class="btn btn-primary btn-lg bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+        id="btn-predict"
+      >
+        Predict!
+      </button>
+    </div>
+  </div>
+
+  <div class="loader hidden mt-4"></div>
+
+  <h3 id="result" class="text-lg font-semibold text-center mt-4">
+    <span> </span>
+  </h3>
+</div>
+
+{% endblock %}
